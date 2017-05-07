@@ -1,1 +1,70 @@
-.Glux{border-left:2px dashed blue;border-right:2px dashed blue;padding-left:7px;margin-left:8px;padding-right:7px;margin-right:8px}.Y-Glux{position:relative;position:relative;color:#44d5eb;padding-left:10px;opacity:.5}p.Text{padding-left:10px;padding-right:10px;font-size:20px;color:#eccccc;text-align:justify}.Y-Back{background-color:#6c737f;border-radius:30px 30px 30px 30px}table#Proekcia{border-collapse:collapse;border:1px solid black;width:60vw}tr.hidden{background-color:#ef4366}input[type="checkbox"]{position:absolute}ul.topnav{list-style-type:none;margin:0;padding:0;overflow:hidden;box-shadow:0 0 .1px 3px rgba(0,0,0,.4);background-color:#333}ul.topnav li{float:left}ul.topnav li a{display:block;color:white;text-align:center;padding:7px 16px;text-decoration:none}ul.topnav li a:hover:not(.active){background-color:#111}ul.topnav li a.active{background-color:#748baf}ul.topnav li.right{float:right}@media screen and (max-width:600px){ul.topnav li.right,ul.topnav li{float:none}ul.topnav{box-shadow:none}}*{box-sizing:border-box}body{margin:0}
+.Glux{
+    border-left:2px dashed blue;
+    border-right:2px dashed blue;
+    padding-left:7px;
+    margin-left:8px;
+    padding-right:7px;
+    margin-right:8px;
+    }
+.Y-Glux{
+    position:relative;
+    position:relative;
+    color:#44d5eb;
+    padding-left:10px;
+    opacity:0.5;
+    }
+p.Text{
+    padding-left:10px;
+    padding-right:10px;
+    font-size:20px;color:#eccccc;
+    text-align:justify;
+    }
+.Y-Back{
+    background-color:#6c737f;
+    border-radius:30px 30px 30px 30px;
+    }
+table#Proekcia{
+    border-collapse:collapse;
+    border:1px solid black;width:60vw;
+    }
+tr.hidden{
+    background-color:#ef4366
+    }
+input[type="checkbox"]{
+    position:absolute;
+    }
+ul.topnav{
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    box-shadow:0 0 .1px 3px rgba(0,0,0,.4);
+    background-color:#333;
+    }
+ul.topnav li{
+    float:left;
+    }
+ul.topnav li a{
+    display:block;
+    color:white;
+    text-align:center;
+    padding:7px 16px;
+    text-decoration:none;
+    }
+ul.topnav li a:hover:not(.active){
+    background-color:#111;
+    }
+ul.topnav li a.active{
+    background-color:#748baf;
+    }
+ul.topnav li.right{
+    float:right;
+    }
+@media screen and (max-width:600px){
+    ul.topnav li.right,
+    ul.topnav li{ float:none; box-shadow:none; }
+    }
+*{ box-sizing:border-box; }
+body{
+    margin:0;
+}
