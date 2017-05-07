@@ -1,0 +1,13 @@
+ErrorDocument 404 /err404.html
+RewriteEngine On
+
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.(html|php)
+RewriteRule ^index\.(html|php) /? [R=301,L]
+
+redirect /contact.php/ http://emma-sargsyan.xyz/contact.php
+redirect /aboutus.php/ http://emma-sargsyan.xyz/aboutus.php
+redirect /news.php/ http://emma-sargsyan.xyz/news.php
+<Limit GET POST>
+  order allow,deny
+  allow from all
+</Limit>

@@ -1,0 +1,183 @@
+<html>
+<head>
+	<title>Image Java Editor</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<link href="style/style.css" rel="stylesheet" type="text/css">
+<SCRIPT language=JavaScript  src="js/color.js" ></SCRIPT>
+<SCRIPT language=JavaScript  src="js/vis.js" ></SCRIPT>
+<SCRIPT language=JavaScript  src="js/hog.js" ></SCRIPT>
+<SCRIPT language=JavaScript  src="js/scale.js" ></SCRIPT>
+<SCRIPT language=JavaScript  src="js/compression.js" ></SCRIPT>
+<SCRIPT language=JavaScript  src="js/dandd.js" ></SCRIPT>
+</head>
+
+<body onLoad="m()">
+<table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td height="20" bgcolor="#0A246A" align="center" colspan="2">
+		<font color="#FFFFFF"><b>Image Java Editor v1.1.0</b></font>
+		</td>
+	</tr>
+<form enctype="multipart/form-data" name="form_1" method="POST"  target="_self" action="action.php">
+	<tr bgcolor='#C0C0C0'>
+		<td valign="top" height="50" align="center"><br>
+			<table width="100%" style="width:98%;border: #0A246A groove 1px;background-color: #efefef;">
+				<tr>
+					<td width="300">
+						<b>масштаб:</b><span id="scale_id" style="color:red"> 100 </span>%
+					</td>
+					<td align="center" valign="middle">
+					<b><span id="nm" style="color:green">noname</span></b>
+					</td>
+					<td align="right" width="300">
+						<b>исходный размер: </b><span id="size_" style="color:#0A246A;">*x*</span>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+					<input type="button" value="+" style="width:30px" onclick="scale2(0,0)">
+					<select name="scale_select" onChange="scale2(-1)" style="width:70px">
+						<option>auto</option>
+						<option>500%</option>
+						<option>200%</option>
+						<option>150%</option>
+						<option selected>100%</option>
+						<option>75%</option>
+						<option>50%</option>
+						<option>25%</option>
+						<option>10%</option>
+				</select>
+					<input type="button" value="-" style="width:30px" onclick="scale2(0,1)">
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td rowspan="2" valign="top" width="330"><br>
+			<div align="center" class="bor_bot_dash">
+				<center><b>Фаил</b></center><br>
+				<input type="file" name="load" onchange='swap_image()'><br>&nbsp;
+			</div>
+			<hr>
+			<div class="bor_bot_dash">
+				<center><b>Размер окна</b></center><br>
+				<center>
+				<b>-X-</b> <input type="text" name="w" id="tx_width" style="width:50px" onkeyup="key_w()">
+				<b>-Y-</b> <input type="text" name="h" id="tx_height" style="width:50px" onkeyup="key_h()"><br>
+				</center>
+				<input type="checkbox" name="pos" style="background:#efefef" checked> сохранять пропорции<br>
+				
+			</div>
+			<hr>
+			<div class="bor_bot_dash">
+				<center><b>Размер изображения</b></center><br>
+				<table width="310" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td>
+						<input type="radio" name="comp" onclick="compression()" style="background:#efefef" checked> - none<br>
+						<input type="radio" name="comp" onclick="compression()" style="background:#efefef"> - растянуть<br>
+						<input type="radio" name="comp" onclick="compression()" style="background:#efefef"> - по ширине<br>
+						<input type="radio" name="comp" onclick="compression()" style="background:#efefef"> - по высоте
+						</td>
+						<td valign="top" align="center" width="130">
+						<hr>
+						<b>-X-</b><br>
+						<input type="button" value="+" style="width:30px" onclick="compression_(1,1)">
+						<input type="text" name="img_x" style="width:50px" value="0" onkeyup="compression_key()">
+						<input type="button" value="-" style="width:30px" onclick="compression_(0,1)">
+						<hr>
+						<b>-Y-</b><br>
+						<input type="button" value="+" style="width:30px" onclick="compression_(1,0)">
+						<input type="text" name="img_y" style="width:50px" value="0" onkeyup="compression_key()">
+						<input type="button" value="-" style="width:30px" onclick="compression_(0,0)">
+						<hr>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<hr>
+			<div class="bor_bot_dash">
+				<center><b>Позиционирование</b></center><br>
+				<table width="310" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td>
+						<input type="radio" name="cntr"  onclick="hog()" style="background:#efefef" checked> - по центру<br>
+						<input type="radio" name="cntr"  onclick="hog()" style="background:#efefef"> - левый верхний угол<br>
+						<input type="radio" name="cntr"  onclick="hog()" style="background:#efefef"> - правый верхний угол<br>
+						<input type="radio" name="cntr"  onclick="hog()" style="background:#efefef"> - левый нижний угол<br>
+						<input type="radio" name="cntr"  onclick="hog()" style="background:#efefef"> - правый нижний угол
+						</td>
+						<td valign="top" align="center" width="130">
+						<hr>
+						<b>-X-</b><br>
+						<input type="button" value="+" style="width:30px" onclick="hog_(1,1)">
+						<input type="text" name="pos_x" style="width:50px" value="200" onkeyup="hog_key()">
+						<input type="button" value="-" style="width:30px" onclick="hog_(0,1)">
+						<hr>
+						<b>-Y-</b><br>
+						<input type="button" value="+" style="width:30px" onclick="hog_(1,0)">
+						<input type="text" name="pos_y" style="width:50px" value="183" onkeyup="hog_key()">
+						<input type="button" value="-" style="width:30px" onclick="hog_(0,0)">
+						<hr>
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			<hr>
+<!--****************************************************************************************************-->
+<div  align="center" class="bor_bot_dash">
+<center><b>Фон</b></center><br>
+<table border=0  cellspacing="0" cellpadding="0" class="color">
+<tr>
+<script language=JavaScript>
+enter_menu()
+</script>
+<td width=10 height=20 bgcolor=black onmouseover='fff("000000")' onclick='ddd("000000")' onmouseout='ggg()'></td>
+<td width=10 height=20 bgcolor=white onmouseover='fff("ffffff")' onclick='ddd("ffffff")' onmouseout='ggg()'></td>
+</tr>
+</table>
+
+<br>
+
+
+
+<table border=0 width="170" align=center>
+<tr>
+<td width="60">
+<input type="text" name="qq" style="width: 60px;" maxlength="6">
+</td>
+<td width="60" id="col_n"  class="fr_color">&nbsp;
+</td>
+<td valign="bottom"><input type="button" value="Ok!" onclick="bg()" style="width:50px"></td>
+</tr>
+</table><br>
+</div>
+<!--****************************************************************************************************-->
+
+			<hr>
+<div align="center">
+<input type="submit" value="загрузка"  style="width:300px">
+</div>
+			<hr>
+		</td>
+	</tr>
+	<tr bgcolor='#C0C0C0'>
+		<td align="center" height="100%">
+			<div class="div_1" id="div1" align="left">
+				<div style="overflow:hidden;position:absolute;left:0px;top:0px;width:128px;height:128px;background:#ffffff;border: red double 3px;" id="div2">
+					<img src="" border="0" name='image2' style="display:none">
+					<img src="" border="0" id="im" name='image1'style="position:relative;left:200px;top:183px;display:none;cursor:move" onmousedown="mousedown()">
+				</div>			
+			</div>
+		</td>
+	</tr>
+
+</form>
+	<tr>
+		<td height="20" bgcolor="#0A246A" colspan="2" align="center">
+		<font color="#FFFFFF">по всем вопросам работы и модернизации обращаться к разработчику: <a class="ondark" href="mailto:aspid02@ngs.ru">Выскорко М.С.</a> или на сайте <a class="ondark" target="_blank" href="http://www.mv.hut2.ru">MV.HUT2.RU</a></font>
+		</td>
+	</tr>
+</table>
+</body>
+</html>

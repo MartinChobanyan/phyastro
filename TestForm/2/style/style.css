@@ -1,0 +1,84 @@
+/*
+   Image Java Editor v1.1.#
+   2005 - 2006 (C) Выскорко М.С. (aspid02@ngs.ru)
+   описание работы скрипты Вы можете прочитать по адресу http://www.mv.hut2.ru/?caption=article&id=3&num=4
+*/
+body 
+	{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	margin: 0px;
+	}
+table 
+	{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	}
+
+input 
+	{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #000000;
+	background-color: #ffffff;
+	}
+
+select 
+	{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #000000;
+	border: 4px solid #0a246a;
+	background-color: #efefef;
+	}
+
+.div_1
+	{
+	border: #0A246A groove 1px;
+	overflow:auto;
+	width:502px;
+	height:502px;
+	}
+	
+.fr_color
+	{
+	border: black groove 1px;
+	}
+	
+.color
+	{
+	border: black groove 1px;
+	cursor: crosshair;
+	}
+
+.bor_bot_dash
+	{
+	width:330;
+	border: #0A246A dashed 1px; 
+	padding: 3px;
+	background-color: #efefef;
+	}
+	
+.ondark:link 
+	{
+	color: #00FFFF;
+	text-decoration: none;
+	}
+	
+.ondark:visited 
+	{
+	color: #00FFFF;
+	text-decoration: none;
+	}
+
+.ondark:hover 
+	{
+	color: #00FFFF;
+	text-decoration: underline;
+	}
+	
+.ondark:active 
+	{
+	color: #00FFFF;
+	text-decoration: none;
+	}

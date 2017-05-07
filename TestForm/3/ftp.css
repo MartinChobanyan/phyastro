@@ -1,0 +1,27 @@
+	h1{}
+	body{background-color: #FFFFFF}
+	p{font-family: Arial, Helvetica, sans-serif; font-size: 13px}
+	a{color: #2136f6; font-family: Arial, Helvetica, sans-serif;}
+	a:hover{color: #981912;}
+	em{font-style: normal}
+	td{padding-left: 10px; padding-right: 10px}
+	.z1{font-size: 28px; color: #3C6194}
+	.z2{font-size: 22px; color: #3C6194; margin-bottom: 10px}	
+	.ztable{font-size: 15px; color: #3C6194; margin-bottom: 6px; margin-top: 10px; font-weight: normal; color: #718696; margin-left: 30px}		
+	.zag2{font-size: 13px; color: #264769; font-weight: bold}	
+	.zagrow{font-size: 13px; color: #264769; font-weight: bold; padding-left: 10px; text-indent: 0px}		
+	.trvalue{font-size: 15px; margin-left: 5px; margin-right: 5px}
+	.bodytable{background-color: #E0EFF5; font-size: 13px; }
+	.help{color: #434565; font-size: 80%}
+	.link{color: #10557B;}
+	.menu{color: #A90303; font-size: 13px;}
+	.headtable{padding: 7px; padding-left: 20px; padding-right: 20px; background-color: #E2CC61; font-size: 13px; font-weight: bold; color: #614B26 ; text-indent: 0px}
+	.help{color: #3C505E}
+	.topadmin{background-color: #597F93; background-image: url(images/imgmenu.gif); background-repeat: repeat-x; border-bottom-style: solid; border-top-style: solid; border-width: 1px; border-color: #000000}
+	.tdactivemenu{background-color: #EBF6FF; border-style: solid; border-color: #98ADC6; border-width: 1px; padding: 2px}
+	.regard2{color: #8F1C1C; font-size: 15px; font-weight: bold}
+	.input{background-color: #FFFEE3; border-width: 2px}	
+	.button{ background-image: url(images/button2.gif); border-width: 1px; color: #2B452A; border-color: #2D6328;}		
+	.boxmenu{border-top-style: solid; border-bottom-style: solid; border-width: 1px; border-color: #89A6C3; padding: 7px; padding-left: 20px; padding-right: 20px; background-color: #E0EFF5}
+	
+	
