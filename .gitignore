@@ -1,2 +1,3 @@
-admin_panel/logs/base.log
-admin_panel/logs/session.txt
+# IGNORING log files
+admin_panel/logs/*.log
+admin_panel/logs/*.txt
