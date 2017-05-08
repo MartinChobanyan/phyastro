@@ -12,8 +12,10 @@ include_once 'admin_panel/scripts/logreader.php';
 <!-- ~~~~~~~~~~~~~~~~~~~ -->
 <body>
 
-<? require_once ('blocks/header.php') ?>
-<? require_once ('blocks/Top-Nav.php') ?>
+<? 
+    require_once ('blocks/header.php');
+    require_once ('blocks/Top-Nav.php') 
+?>
 
 <div class="Y-Back">
 

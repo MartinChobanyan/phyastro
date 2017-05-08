@@ -33,8 +33,10 @@ $result=mysqli_query($link, "SELECT * FROM `News` ORDER BY id DESC") or die(mysq
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <body>
 
-<? require_once ('blocks/header.php') ?>
-<? require_once ('blocks/Top-Nav.php') ?>
+<? 
+  require_once ('blocks/header.php');
+  require_once ('blocks/Top-Nav.php') 
+?>
 
 <!--СОДЕРЖАНИЕ ~~~~Описание-->
 <div class="Y-Back">
