@@ -56,7 +56,7 @@ $result=mysqli_query($link, "SELECT * FROM `Gradaran` ORDER BY `title`") or die(
 <br>
 <center><form method="POST" id="Girq-del" class="Post-form">
 <span style="color: #FFEAEA">Գրքի ID:</span>
-<input type="text" autocomplete="off" name="id" required placeholder="ID համար">
+<input type="text" autocomplete="off" max-length="3" pattern="[0-9]{0,3}" name="id" required placeholder="ID համար">
 <input type="submit" value="հեռացնել">
 </form></center>
 <br>
