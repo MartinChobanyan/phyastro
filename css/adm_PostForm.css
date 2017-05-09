@@ -6,6 +6,7 @@
     }
 .Post-form [type='text'],textarea{
     width:100%;
+    text-overflow:ellipsis;
     box-sizing:border-box;
     font-size: 17px;
     margin:4px 0 2% 0;
