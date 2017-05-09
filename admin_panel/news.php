@@ -35,7 +35,7 @@ $result=mysqli_query($link, "SELECT * FROM `News`") or die(mysqli_error($link));
 </center><br>
 <center><form method="POST" id="News-make" class="Post-form">
 <span style="color:#FFEAEA">Նորության ID<span style="color:#9BA3A9">(վերադրում/փոփոխում)</span>:</span>
-<input type="text" name="id" placeholder="ID համար(ԱՆՊԱՅՄԱՆ ՉԷ)">
+<input type="text" autocomplete="off" max-length="3" pattern="[0-9]{0,3}" name="id" placeholder="ID[0-3 թվանշան]">
 <span style="color:#FFEAEA">Նորության անվանում:</span>
 <input type="text" name="title" required placeholder="Ապագա նորության անվանում">
 <span style="color:#FFEAEA">Նորություն:</span>

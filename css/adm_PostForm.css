@@ -5,7 +5,9 @@
     background:#2c456d;
     }
 .Post-form [type='text'],textarea{
-    width:100%;box-sizing:border-box;
+    width:100%;
+    box-sizing:border-box;
+    font-size: 17px;
     margin:4px 0 2% 0;
     padding:2%;
     border:1px solid rgba(0,0,0,.1);

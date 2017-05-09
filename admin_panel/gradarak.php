@@ -46,7 +46,7 @@ $result=mysqli_query($link, "SELECT * FROM `Gradaran` ORDER BY `title`") or die(
 </center><br>
 <center><form method="POST" id="Girq-make" class="Post-form">
 <span style="color: #FFEAEA">Գրքի ID<span style="color: #9BA3A9">(փոփոխում)</span>:</span>
-<input type="text" autocomplete="off" name="id" placeholder="ID համար(ԱՆՊԱՅՄԱՆ ՉԷ)">
+<input type="text" autocomplete="off" max-length="3" pattern="[0-9]{0,3}" name="id" placeholder="ID համար[0-3 թվանշան]">
 <span style="color: #FFEAEA">Գրքի անվանում:</span>
 <input type="text" name="title" required placeholder="Գրքի անվանում">
 <span style="color: #FFEAEA">Հղում:</span>
