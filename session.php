@@ -1,14 +1,14 @@
 <?
 session_start();
-//выделяем уникальный идентификатор сессии
+//Unique session ID
 $id = session_id();
 
 if ($id!="") {
- //текущее время
+ //now time
  $CurrentTime = time();
- //через какое время сессии удаляются
+ //Del time
  $LastTime = time() - 10;
- //файл, в котором храним идентификаторы и время
+ // file base
  $base = "admin_panel/logs/session.txt";
 
  $file = file($base);
