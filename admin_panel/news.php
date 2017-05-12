@@ -45,7 +45,7 @@ $result=mysqli_query($link, "SELECT * FROM `News`") or die(mysqli_error($link));
 <br>
 <center><form method="POST" id="News-del" class="Post-form">
 <span style="color:#FFEAEA">Նորության ID:</span>
-<input type="text" autocomplete="off" max-length="3" pattern="[0-9]{0,3}" name="id" required placeholder="ID համար">
+<input type="text" autocomplete="off" max-length="3" pattern="[0-9]{0,3}" name="id" required placeholder="ID համար[0-3 թվանշան]">
 <input type="submit" value="հեռացնել">
 </form></center>
 <br>
