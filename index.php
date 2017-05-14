@@ -55,10 +55,11 @@
         </div>
 
     <!--FACEBOOK SHARE-->
-    <iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Femma-sargsyan.xyz%2F&width=320&layout=standard&action=like&size=small&show_faces=true&share=true&height=80&appId=996135457185915" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" 
-      width="320" 
-      height="20"
-    ></iframe>
+    <iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Femma-sargsyan.xyz%2F&width=320&layout=button_count&action=like&size=small&show_faces=true&share=true&height=20&appId=996135457185915" scrolling="no" frameborder="0" allowTransparency="true"
+        style="border:none;overflow:hidden;padding-left:1vw"
+        width="320" 
+        height="20"
+        ></iframe>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
     <!--~~~~~~~~~~~~FOOT PART~~~~~~~~~~~~~~~~-->
