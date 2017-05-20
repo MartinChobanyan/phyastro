@@ -102,25 +102,17 @@ document.getElementById('Girq-del').addEventListener('submit', function(evt){
    <script src="/js/jquery-1.7.2.min.js" type="text/javascript"></script>
 <script>
 jQuery(document).ready(function(e) {
-
   jQuery("#hid input[type=checkbox]").change(function() {
-
     id = $(this).attr('id');
     vle = $(this).val();
-
     aj("scripts/hidder.php", false, "html", {
       "id": id,
       "value": vle
     }, s_hidder);
-
   });
-
-
   function s_hidder(result) {
     location.reload();
   }
-
-
 /*=======Функция универсального ajax запроса=======*/
   function aj(url, async, datatype, data, success) {
     $.ajax({
@@ -136,7 +128,6 @@ jQuery(document).ready(function(e) {
       }
     });
   }
-
 }); //конец ожидания DOM
 </script>
 </body>
