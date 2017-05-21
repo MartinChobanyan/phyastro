@@ -24,7 +24,7 @@
 
 <body>
     <!-- Preloader -->
-    <div id="page-preloader" class="preloader"><div class="loader"></div></div>
+    <div id="page-preloader" class="preloader"><div class="loader"></div></div></div>
         
     <header>
       <? 
@@ -52,7 +52,6 @@
         ?>
         <!--~~~~~Over~~~~~-->
         </ul>
-        </div>
 
     <!--FACEBOOK SHARE-->
     <iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Femma-sargsyan.xyz%2F&width=320&layout=button_count&action=like&size=small&show_faces=true&share=true&height=20&appId=996135457185915" scrolling="no" frameborder="0" allowTransparency="true"
