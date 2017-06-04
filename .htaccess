@@ -1,5 +1,4 @@
 ErrorDocument 404 /err404.html
-php_value date.timezone Asia/Yerevan
 RewriteEngine On
 
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.(html|php)
