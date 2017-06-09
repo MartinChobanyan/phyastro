@@ -10,4 +10,4 @@ Disallow: /img
 Disallow: /css
 Disallow: /js
 Disallow: /admin_panel
-Host: www.emma-sargsyan.xyz
+Host: www.e-phyastro.xyz
