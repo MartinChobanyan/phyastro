@@ -1,5 +1,5 @@
 <?
-include_once 'scripts/getrow.php';
+include_once '../scripts/getrow.php';
 $result=mysqli_query($link, "SELECT * FROM `News`") or die(mysqli_error($link));
 ?>
 <html>
@@ -50,6 +50,6 @@ $result=mysqli_query($link, "SELECT * FROM `News`") or die(mysqli_error($link));
 </form></center>
 <br>
 </div>
-<script>/*<![CDATA[*/document.getElementById("News-make").addEventListener("submit",function(a){var b=new XMLHttpRequest(),c=this;a.preventDefault();b.open("POST","scripts/news-maker.php",true);b.setRequestHeader("Content-Type","application/x-www-form-urlencoded");b.send("&id="+c.id.value+"&title="+c.title.value+"&description="+c.description.value);b.onreadystatechange=function(){if(b.readyState==4&&b.status==200){alert(b.responseText);c.id.removeAttribute("value");c.id.value="";c.description.removeAttribute("value");c.description.value="";c.title.removeAttribute("value");c.title.value="";location.reload()}}},false);document.getElementById("News-del").addEventListener("submit",function(a){var b=new XMLHttpRequest(),c=this;a.preventDefault();b.open("POST","scripts/news-deleter.php",true);b.setRequestHeader("Content-Type","application/x-www-form-urlencoded");b.send("&id="+c.id.value);b.onreadystatechange=function(){if(b.readyState==4&&b.status==200){document.getElementById(c.id.value).style.display="none";alert(b.responseText);c.id.removeAttribute("value");c.id.value=""}}},false);/*]]>*/</script>
+<script>/*<![CDATA[*/document.getElementById("News-make").addEventListener("submit",function(a){var b=new XMLHttpRequest(),c=this;a.preventDefault();b.open("POST","../scripts/news-maker.php",true);b.setRequestHeader("Content-Type","application/x-www-form-urlencoded");b.send("&id="+c.id.value+"&title="+c.title.value+"&description="+c.description.value);b.onreadystatechange=function(){if(b.readyState==4&&b.status==200){alert(b.responseText);c.id.removeAttribute("value");c.id.value="";c.description.removeAttribute("value");c.description.value="";c.title.removeAttribute("value");c.title.value="";location.reload()}}},false);document.getElementById("News-del").addEventListener("submit",function(a){var b=new XMLHttpRequest(),c=this;a.preventDefault();b.open("POST","../scripts/news-deleter.php",true);b.setRequestHeader("Content-Type","application/x-www-form-urlencoded");b.send("&id="+c.id.value);b.onreadystatechange=function(){if(b.readyState==4&&b.status==200){document.getElementById(c.id.value).style.display="none";alert(b.responseText);c.id.removeAttribute("value");c.id.value=""}}},false);/*]]>*/</script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 <?
-include_once 'admin_panel/scripts/conf.php';
-include_once 'admin_panel/scripts/logreader.php';
+include_once 'scripts/conf.php';
+include_once 'scripts/logreader.php';
 ?>
 <html lang="hy">
 <head>
@@ -54,7 +54,7 @@ document.getElementById('feedback-form').addEventListener('submit', function(evt
   check = prompt(a + " + " + b + " =");
   if((a+b)==check)
   {
-    http.open("POST", "admin_panel/scripts/contacts.php", true);
+    http.open("POST", "scripts/contacts.php", true);
     http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     http.send("nameFF=" + f.nameFF.value + "&contactFF=" + f.contactFF.value + "&messageFF=" + f.messageFF.value);
     http.onreadystatechange = function() {

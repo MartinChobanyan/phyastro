@@ -1,6 +1,6 @@
 <?
-include_once 'scripts/getrow.php';
-include_once 'scripts/filter.php';
+include_once '../scripts/getrow.php';
+include_once '../scripts/filter.php';
 $result=mysqli_query($link, "SELECT * FROM `Offers` ORDER BY `id` DESC") or die(mysqli_error($link));
 ?>
 <html>
@@ -41,7 +41,7 @@ $result=mysqli_query($link, "SELECT * FROM `Offers` ORDER BY `id` DESC") or die(
 </center><br>
 <br>
 <center>
-    <input type="submit" class="Post-form" style="font-size: 2em; color: white;" onclick="window.location.href='scripts/TRUNCATE-table.php'" value="Մաքրել"></form>
+    <input type="submit" class="Post-form" style="font-size: 2em; color: white;" onclick="window.location.href='../scripts/TRUNCATE-table.php'" value="Մաքրել"></form>
 </center> 
 <br>
 </div>

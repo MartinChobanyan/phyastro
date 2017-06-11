@@ -1,6 +1,6 @@
 <?
-include_once 'admin_panel/scripts/conf.php';
-include_once 'admin_panel/scripts/logreader.php'; 
+include_once 'scripts/conf.php';
+include_once 'scripts/logreader.php'; 
 ?>
 <html lang="hy">
 <head>

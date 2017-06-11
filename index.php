@@ -1,8 +1,8 @@
 <?
-    include_once 'admin_panel/scripts/conf.php';
-    include_once 'admin_panel/scripts/logreader.php';
+    include_once 'scripts/conf.php';
+    include_once 'scripts/logreader.php';
     include_once 'session.php';
-    include_once 'admin_panel/scripts/getrow.php';
+    include_once 'scripts/getrow.php';
     $result=mysqli_query($link, "SELECT * FROM `Gradaran` WHERE `visible`= 1 ORDER BY `title`") or die(mysqli_error($link)); 
 ?>
 <html lang="hy">

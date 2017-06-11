@@ -1,5 +1,5 @@
 <?
-include_once 'scripts/getrow.php';
+include_once '../scripts/getrow.php';
 $result=mysqli_query($link, "SELECT * FROM `Gradaran` ORDER BY `title`") or die(mysqli_error($link));
 ?>
 <html>
@@ -66,7 +66,7 @@ $result=mysqli_query($link, "SELECT * FROM `Gradaran` ORDER BY `title`") or die(
 document.getElementById('Girq-make').addEventListener('submit', function(evt){
   var http = new XMLHttpRequest(), f = this;
   evt.preventDefault();
-  http.open("POST", "scripts/girq-maker.php", true);
+  http.open("POST", "../scripts/girq-maker.php", true);
   http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   http.send("&id=" + f.id.value + "&title=" + f.title.value + "&link=" + f.link.value);
   http.onreadystatechange = function() {
@@ -85,7 +85,7 @@ document.getElementById('Girq-make').addEventListener('submit', function(evt){
 document.getElementById('Girq-del').addEventListener('submit', function(evt){
   var http = new XMLHttpRequest(), f = this;
   evt.preventDefault();
-  http.open("POST", "scripts/girq-deleter.php", true);
+  http.open("POST", "../scripts/girq-deleter.php", true);
   http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   http.send("&id=" + f.id.value);
   http.onreadystatechange = function() {
@@ -105,7 +105,7 @@ jQuery(document).ready(function(e) {
   jQuery("#hid input[type=checkbox]").change(function() {
     id = $(this).attr('id');
     vle = $(this).val();
-    aj("scripts/hidder.php", false, "html", {
+    aj("../scripts/hidder.php", false, "html", {
       "id": id,
       "value": vle
     }, s_hidder);
