@@ -3,11 +3,13 @@ Disallow: /img
 Disallow: /Grqer
 Disallow: /css
 Disallow: /js
+Disallow: /scripts
 Disallow: /admin_panel
 
 User-agent: Yandex
 Disallow: /img
 Disallow: /css
 Disallow: /js
+Disallow: /scripts
 Disallow: /admin_panel
 Host: www.e-phyastro.xyz
