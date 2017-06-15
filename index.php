@@ -25,7 +25,10 @@
 <body>
     <!-- Preloader -->
     <div id="page-preloader" class="preloader"><div class="loader"></div></div></div>
-        
+    <!--FB SDK-->
+    <div id="fb-root"></div>
+    <script>(function(e,a,f){var c,b=e.getElementsByTagName(a)[0];if(e.getElementById(f)){return}c=e.createElement(a);c.id=f;c.src="//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=996135457185915";b.parentNode.insertBefore(c,b)}(document,"script","facebook-jssdk"));</script>
+    <!--Content-->
     <header>
       <? 
           require_once ('blocks/header.php');
@@ -54,11 +57,15 @@
         </ul>
 
     <!--FACEBOOK SHARE-->
-    <iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fe-phyastro.xyz%2F&width=320&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId=996135457185915" scrolling="no" frameborder="0" allowTransparency="true"
-        style="border:none;overflow:hidden;padding-left:1vw"
-        width="320" 
-        height="20"
-        ></iframe>
+    <div class="fb-like" 
+        data-href="http://e-phyastro.xyz/" 
+        data-width="320" 
+        data-layout="button_count" 
+        data-action="like" 
+        data-size="small" 
+        data-show-faces="true" 
+        data-share="true">
+    </div>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
     <!--~~~~~~~~~~~~FOOT PART~~~~~~~~~~~~~~~~-->
