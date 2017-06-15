@@ -64,7 +64,8 @@
         data-action="like" 
         data-size="small" 
         data-show-faces="true" 
-        data-share="true">
+        data-share="true"
+        style="left:10px">
     </div>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
