@@ -24,10 +24,10 @@
 
 <body>
     <!-- Preloader -->
-    <div id="page-preloader" class="preloader"><div class="loader"></div></div></div>
+    <div id="page-preloader" class="preloader"><div class="loader"></div></div>
     <!--FB SDK-->
     <div id="fb-root"></div>
-    <script>(function(e,a,f){var c,b=e.getElementsByTagName(a)[0];if(e.getElementById(f)){return}c=e.createElement(a);c.id=f;c.src="//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=996135457185915";b.parentNode.insertBefore(c,b)}(document,"script","facebook-jssdk"));</script>
+    <script>(function(e,a,f){var c,b=e.getElementsByTagName(a)[0];if(e.getElementById(f)){return}c=e.createElement(a);c.id=f;c.src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=996135457185915";b.parentNode.insertBefore(c,b)}(document,"script","facebook-jssdk"));</script>
     <!--Content-->
     <header>
       <? 
@@ -41,10 +41,10 @@
         <!--~~~~~~~~~~~~~Books-GET~~~~~~~~~~~~~~~~-->
         <?
           mysqli_close($link);
-          $s='';
+          $s=''; $full=false;
           while ($row=getrow()):
             $full=True;
-            if($s!=mb_substr($row['title'], 0, 1, 'UTF-8') || empty(s)) 
+            if($s!=mb_substr($row['title'], 0, 1, 'UTF-8') || empty($s))
             {
               $s=mb_substr($row['title'], 0, 1, 'UTF-8');
               echo '<li><a class="header">'.$s.'</a></li>';
@@ -82,7 +82,7 @@
     <!-- ~~~~~~~~~~Preloader~~~~~~~~~~~~~~~ -->
         <script src="js/preload.js"></script>
     <!-- ~~~~~~~~~~~~~Search Script~~~~~~~~~~~~-->
-        <script src="js/Search_Function.min.js" type="text/javascript"></script>
+        <script src="js/Search_Function.js" type="text/javascript"></script>
     <!-- ~~~~~~~~~~~~~~Scroll~~~~~~~~~~~~~~-->
         <script src="js/scroll.min.js" type="text/javascript"></script>
     <!-- Starting the plugin -->

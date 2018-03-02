@@ -1,3 +1,4 @@
 # IGNORING log files
 admin_panel/logs/*.log
 admin_panel/logs/*.txt
+.idea/*.*
