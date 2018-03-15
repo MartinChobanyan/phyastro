@@ -30,27 +30,48 @@ $result=mysqli_query($link, "SELECT * FROM `Gradaran` ORDER BY `title`") or die(
     <th>ID</th>
     <th>Անվանում(title)</th>
     <th>Հղում(link)</th>
+    <th>type</th>
     <th>Hidden?</th>
    </tr>
   <?
     mysqli_close($link);
     while ($row=getrow()):
-    echo '<tr';
-    if(!$row['visible']) echo ' class="hidden"';
-    echo ' id='.$row['id'].'><td>'.$row['id'].'</td><td>'.$row['title'].'</td><td>'.$row['link'].'</td><td style="padding-left:26px; vertical-align:middle"><form method="POST" id="hid"><input type="checkbox" id="'.$row['id'].'"';
-        if(!$row['visible']) echo 'checked value="0"'; else echo 'value="1"';
-        echo '></form></td></tr>';
+      echo '<tr';
+        if(!$row['visible']) echo ' class="hidden"';
+        echo ' id='.$row['id'].'>
+        <td>'.$row['id'].'</td>
+        <td>'.$row['title'].'</td>
+        <td>'.$row['link'].'</td>
+        <td>
+          <select id='.$row['id'].'>
+            <option value="0" ';if($row['type']==0) echo 'selected disabled'; echo '>Դպրոցական</option>
+            <option value="1" ';if($row['type']==1) echo 'selected disabled'; echo '>Համալսարանական</option>
+            <option value="2" ';if($row['type']==2) echo 'selected disabled'; echo '>Մասնագիտացված</option>
+          </select>
+        </td>
+        <td style="padding-left:22.5px">
+          <form><input type="checkbox" id="'.$row['id'].'"';
+            if(!$row['visible']) echo 'checked value="0"'; else echo 'value="1"';echo '>
+          </form>
+        </td>
+      </tr>';
     endwhile;
   ?>
   </table>
 </center><br>
 <center><form method="POST" id="Girq-make" class="Post-form">
 <span style="color: #FFEAEA">Գրքի ID<span style="color: #9BA3A9">(փոփոխում)</span>:</span>
-<input type="text" autocomplete="off" max-length="3" pattern="[0-9]{0,3}" name="id" placeholder="ID համար[0-3 թվանշան]">
+<input type="text" onkeyup="Completer()" autocomplete="off" max-length="3" pattern="[0-9]{0,3}" name="id" placeholder="ID համար[0-3 թվանշան]">
 <span style="color: #FFEAEA">Գրքի անվանում:</span>
 <input type="text" name="title" required placeholder="Գրքի անվանում">
 <span style="color: #FFEAEA">Հղում:</span>
 <input type="text" name="link" required placeholder="Հղում">
+<span style="color: #FFEAEA">Type of the book:</span>
+<select name="book-type">
+<option value="0">Դպրոցական</option>
+<option value="1">Համալսարանական</option>
+<option value="2">Մասնագիտացված</option>
+<select><br>
 <input type="submit" value="Ավելացնել|Փոփոխել">
 </form></center>
 <br>
@@ -61,23 +82,18 @@ $result=mysqli_query($link, "SELECT * FROM `Gradaran` ORDER BY `title`") or die(
 </form></center>
 <br>
 </div>
-
 <script>
 document.getElementById('Girq-make').addEventListener('submit', function(evt){
-  var http = new XMLHttpRequest(), f = this;
+  var http = new XMLHttpRequest(), f = this, o = document.getElementsByName('book-type')[0];
   evt.preventDefault();
   http.open("POST", "../scripts/girq-maker.php", true);
   http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  http.send("&id=" + f.id.value + "&title=" + f.title.value + "&link=" + f.link.value);
+  http.send("&id=" + f.id.value + "&title=" + f.title.value + "&link=" + f.link.value + "&type=" + o.value);
   http.onreadystatechange = function() {
     if (http.readyState == 4 && http.status == 200) {
       alert(http.responseText);
-      f.id.removeAttribute('value');
-      f.id.value='';
-      f.link.removeAttribute('value');
-      f.link.value='';
-      f.title.removeAttribute('value');
-      f.title.value='';
+      f.id.value=f.link.value=f.title.value='';
+      o.value=0;
       location.reload();
     }
   }
@@ -90,29 +106,47 @@ document.getElementById('Girq-del').addEventListener('submit', function(evt){
   http.send("&id=" + f.id.value);
   http.onreadystatechange = function() {
     if (http.readyState == 4 && http.status == 200) {
-      document.getElementById(f.id.value).style.display = "none";
       alert(http.responseText);
-      f.id.removeAttribute('value');
       f.id.value='';
+      document.getElementById(f.id.value).style.display = "none";
     }
   }
 }, false);
+function Completer(){
+  var t, c = document.getElementsByName('id')[0].value;
+  if(t = document.getElementById(c)){
+    var e = t.getElementsByTagName('select')[0]; 
+    t = t.getElementsByTagName('td');
+    document.getElementsByName('title')[0].value = t[1].innerHTML;
+    document.getElementsByName('link')[0].value = t[2].innerHTML;
+    document.getElementsByName('book-type')[0].value = e.value;
+  }else document.getElementsByName('title')[0].value = document.getElementsByName('link')[0].value = '', document.getElementsByName('book-type')[0].value=0;
+};
 </script>
 <!-- jquery -->
    <script src="/js/jquery-1.7.2.min.js" type="text/javascript"></script>
 <script>
 jQuery(document).ready(function(e) {
-  jQuery("#hid input[type=checkbox]").change(function() {
+  jQuery("td input[type=checkbox]").change(function() {
     id = $(this).attr('id');
     vle = $(this).val();
     aj("../scripts/hidder.php", false, "html", {
       "id": id,
       "value": vle
-    }, s_hidder);
+    }, function(){
+      location.reload(); // peridical change on this(wait for optimization)
+    });
   });
-  function s_hidder(result) {
-    location.reload();
-  }
+  jQuery("td select").change(function() {
+    id = $(this).attr('id');
+    t = $(this).val();
+    aj("../scripts/bktch.php", false, "html", {
+      "id": id,
+      "type": t
+    }, function(){
+      location.reload(); // peridical change on this(wait for optimization)
+    });
+  });
 /*=======Функция универсального ajax запроса=======*/
   function aj(url, async, datatype, data, success) {
     $.ajax({

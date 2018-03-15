@@ -16,7 +16,7 @@ $query = "UPDATE `Gradaran` SET `visible`='$visibility' WHERE `id`=$id";
 
 $result = mysqli_query($link, $query);
 
-if ($result1==false) 
+if ($result==false) 
 {
 	echo mysqli_error($link);
 }

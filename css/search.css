@@ -1,10 +1,12 @@
-search input{
-    width:320px;
-    box-sizing:border-box;
+search input,select{
+    outline:0;
+    box-sizing: border-box;
     border:2px solid #ccc;
     border-radius:4px;
     font-size:16px;
-    background-color:white;
+}
+search input{
+    width:320px;
     background-image:url('/img/searchicon.png');
     background-position:10px 10px;
     background-repeat:no-repeat;
@@ -14,8 +16,19 @@ search input{
     box-shadow:0 3px 6px rgba(0,0,0,0.16),0 3px 6px rgba(0,0,0,0.23);
     text-overflow:ellipsis
     }
-search input:focus{
+/*search input:focus{
     width:545px
+    }*/
+search select{
+    margin:4px 0 0 0;
+    padding: 5px;
+    }
+.fixed select{
+    position: fixed;
+    width: auto;
+    left: 320;
+    top: -3.517;
+    box-shadow:0 3px 6px rgba(0,0,0,0.16),0 3px 6px rgba(0,0,0,0.23);
     }
 .fixed{
     position:fixed;
@@ -50,6 +63,7 @@ search input:focus{
 .fixed_ul{
     padding-top:23px
     }
-@media screen and (max-width:545px){
-    search input:focus{ width:100% }
-    }
+@media screen and (max-width:510px){
+    select{width:320}
+    .fixed select{left:0;top:46;width:320;}
+}

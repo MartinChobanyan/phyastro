@@ -30,6 +30,10 @@ table#Proekcia{
 tr.hidden{
     background-color:#ef4366
     }
+table select{
+    width: auto;
+    outline: 0;
+}
 input[type="checkbox"]{
     position:absolute;
     }

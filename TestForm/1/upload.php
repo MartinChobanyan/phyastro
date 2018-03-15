@@ -9,7 +9,7 @@ $mime = finfo_file($finfo, $_FILES['file']['tmp_name']);
 $ok = false;
 	switch ($mime) {
 	   case 'image/jpeg':
-	   case 'application/pdf'
+	   case 'application/pdf':
 	        $ok = true;
 	}
    // Проверяем загружен ли файл

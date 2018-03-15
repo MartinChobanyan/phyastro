@@ -4,7 +4,7 @@
     border-radius:20px;
     background:#2c456d;
     }
-.Post-form [type='text'],textarea{
+.Post-form [type='text'],textarea,select{
     width:100%;
     text-overflow:ellipsis;
     box-sizing:border-box;
@@ -24,6 +24,9 @@
     box-shadow:0 1px 2px -1px rgba(0,0,0,.2) inset,0 0 4px rgba(35,146,243,.5);
     transition:.2s linear;
     }
+.Post-form select{
+    outline: 0;border-color:#7eb4ea;
+}
 .Post-form [type="submit"]{
     padding:2%;
     border:0;

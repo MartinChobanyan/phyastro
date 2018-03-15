@@ -18,8 +18,9 @@ $links = $_POST['link'];
 
 $title = $_POST['title'];
 
+$type = isset($_POST['type']) ? $_POST['type']:0;
 
-$query = "INSERT INTO `Gradaran` (`id`,`link`,`title`) VALUES ('$id','$links','$title')";
+$query = "INSERT INTO `Gradaran` (`id`,`link`,`title`,`type`) VALUES ('$id','$links','$title','$type')";
 
 $result1 = mysqli_query($link, $query);
 
@@ -30,7 +31,7 @@ echo "Գիրքը բարեհաջող ներմեուծվել է MySQL գրադար
 }
 else 
 {
-    $query = "UPDATE `Gradaran` SET `link`='$links', `title`='$title' WHERE `id`=$id";
+    $query = "UPDATE `Gradaran` SET `link`='$links', `title`='$title', `type`='$type' WHERE `id`=$id";
     $result2 = mysqli_query($link, $query);
 
 	if ($result2==true)

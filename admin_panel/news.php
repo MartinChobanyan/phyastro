@@ -35,7 +35,7 @@ $result=mysqli_query($link, "SELECT * FROM `News`") or die(mysqli_error($link));
 </center><br>
 <center><form method="POST" id="News-make" class="Post-form">
 <span style="color:#FFEAEA">Նորության ID<span style="color:#9BA3A9">(վերադրում/փոփոխում)</span>:</span>
-<input type="text" autocomplete="off" max-length="3" pattern="[0-9]{0,3}" name="id" placeholder="ID[0-3 թվանշան]">
+<input type="text" onkeyup="Completer()" autocomplete="off" max-length="3" pattern="[0-9]{0,3}" name="id" placeholder="ID[0-3 թվանշան]">
 <span style="color:#FFEAEA">Նորության անվանում:</span>
 <input type="text" name="title" required placeholder="Ապագա նորության անվանում">
 <span style="color:#FFEAEA">Նորություն:</span>
@@ -50,6 +50,49 @@ $result=mysqli_query($link, "SELECT * FROM `News`") or die(mysqli_error($link));
 </form></center>
 <br>
 </div>
-<script>/*<![CDATA[*/document.getElementById("News-make").addEventListener("submit",function(a){var b=new XMLHttpRequest(),c=this;a.preventDefault();b.open("POST","../scripts/news-maker.php",true);b.setRequestHeader("Content-Type","application/x-www-form-urlencoded");b.send("&id="+c.id.value+"&title="+c.title.value+"&description="+c.description.value);b.onreadystatechange=function(){if(b.readyState==4&&b.status==200){alert(b.responseText);c.id.removeAttribute("value");c.id.value="";c.description.removeAttribute("value");c.description.value="";c.title.removeAttribute("value");c.title.value="";location.reload()}}},false);document.getElementById("News-del").addEventListener("submit",function(a){var b=new XMLHttpRequest(),c=this;a.preventDefault();b.open("POST","../scripts/news-deleter.php",true);b.setRequestHeader("Content-Type","application/x-www-form-urlencoded");b.send("&id="+c.id.value);b.onreadystatechange=function(){if(b.readyState==4&&b.status==200){document.getElementById(c.id.value).style.display="none";alert(b.responseText);c.id.removeAttribute("value");c.id.value=""}}},false);/*]]>*/</script>
+<script>
+  document.getElementById("News-make").addEventListener("submit", function(evt) {
+    var http = new XMLHttpRequest(), f = this;
+    evt.preventDefault();
+    http.open("POST", "../scripts/news-maker.php", true);
+    http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    http.send("&id=" + f.id.value + "&title=" + f.title.value + "&description=" + f.description.value);
+    http.onreadystatechange = function() {
+      if (http.readyState == 4 && http.status == 200) {
+        alert(http.responseText);
+        http.id.removeAttribute("value");
+        http.id.value = "";
+        http.description.removeAttribute("value");
+        http.description.value = "";
+        http.title.removeAttribute("value");
+        http.title.value = "";
+        location.reload();
+      }
+    }
+  }, false);
+  document.getElementById("News-del").addEventListener("submit", function(evt) {
+    var http = new XMLHttpRequest(), f = this;
+    evt.preventDefault();
+    http.open("POST", "../scripts/news-deleter.php", true);
+    http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    http.send("&id=" + c.id.value);
+    http.onreadystatechange = function() {
+      if (http.readyState == 4 && http.status == 200) {
+        document.getElementById(f.id.value).style.display = "none";
+        alert(http.responseText);
+        f.id.removeAttribute("value");
+        f.id.value = "";
+      }
+    }
+  }, false);
+  function Completer(){
+    var t, c = document.getElementsByName('id')[0].value;
+    if(t = document.getElementById(c)){ 
+      t = t.getElementsByTagName('td');
+      document.getElementsByName('title')[0].value = t[1].innerHTML;
+      document.getElementsByName('description')[0].value = t[2].innerHTML;
+    }else document.getElementsByName('title')[0].value = document.getElementsByName('description')[0].value = '';
+  };
+</script>
 </body>
 </html>
