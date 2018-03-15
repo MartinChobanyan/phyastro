@@ -12,19 +12,17 @@ function SearchAlgoritm() {
                 b[e].style.display = "none";
                 continue;
             } else if (c.innerHTML.toUpperCase().replace(/[^а-яА-Яa-zA-Z1-9]+/g, '').indexOf(g) != -1) {
-                b[e].style.display = "";
+                if (s) if (s == c.getAttribute('t')) b[e].style.display = ""; else b[e].style.display = "none";
+                else b[e].style.display = "";
             }
             else {
                 b[e].style.display = "none";
             }
         }
-    } else for (var e = 0; e < b.length; e++) b[e].style.display = "";
-    if (s) filter(s, b);
+    } else if(s){
+        for (var e = 0; e < b.length; e++) {
+            var c = b[e].getElementsByTagName('a')[0].getAttribute('t');
+            if (s == c) b[e].style.display = ""; else b[e].style.display = "none";
+        }
+    }else for (var e = 0; e < b.length; e++) b[e].style.display = "";
 }
-function filter(s, b) {
-    for (var e = 0; e < b.length; e++) {
-        var c = b[e].getElementsByTagName('a')[0].getAttribute('t');
-        if (c != s) b[e].style.display = "none";
-        else b[e].style.display = "";
-    }
-};
