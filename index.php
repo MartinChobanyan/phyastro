@@ -3,7 +3,6 @@
     include_once 'scripts/logreader.php';
     include_once 'session.php';
     include_once 'scripts/getrow.php';
-    $result = mysqli_query($link, "SELECT * FROM `Gradaran` WHERE `visible`= 1 ORDER BY `title`") or die(mysqli_error($link)); 
 ?>
 <html lang="hy">
 <head>
@@ -34,8 +33,8 @@
     <!--Content-->
     <header>
       <? 
-            require_once ('blocks/header.php');
-            require_once ('blocks/Top-Nav.php'); 
+        require_once ('blocks/header.php');
+        require_once ('blocks/Top-Nav.php'); 
       ?>
     </header>
 
@@ -52,12 +51,12 @@
     <ul id="G" class="Grqashar">
         <!--~~~~~~~~~~~~~Books-GET~~~~~~~~~~~~~~~~-->
         <?
+            $result = mysqli_query($link, "SELECT * FROM `Gradaran` WHERE `visible`= 1 ORDER BY `title`") or die(mysqli_error($link));
             mysqli_close($link);
             $s = ''; 
             if(mysqli_num_rows($result)){
-                while ($row = getrow())
+                while ($row = getrow($result))
                 {
-                    $full = True;
                     if($s != mb_substr($row['title'], 0, 1, 'UTF-8') || empty($s))
                     {
                         $s = mb_substr($row['title'], 0, 1, 'UTF-8');

@@ -1,7 +1,6 @@
 <?
   include_once '../scripts/getrow.php';
   include_once '../scripts/filter.php';
-  $result=mysqli_query($link, "SELECT * FROM `Offers` ORDER BY `id` DESC") or die(mysqli_error($link));
 ?>
 <html>
   <head>
@@ -32,7 +31,9 @@
             <th>IP</th>
           </tr>
           <?
-            while ($row=getrow()):
+            $result = mysqli_query($link, "SELECT * FROM `Offers` ORDER BY `id` DESC") or die(mysqli_error($link));
+            mysqli_close($link);
+            while ($row = getrow($result)):
               echo 
               '<tr>
                 <td>'.$row['id'].'</td>

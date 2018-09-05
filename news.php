@@ -2,7 +2,6 @@
   include_once 'scripts/conf.php';
   include_once 'scripts/logreader.php';
   include_once 'scripts/getrow.php';
-  $result = mysqli_query($link, "SELECT * FROM `News` ORDER BY id DESC") or die(mysqli_error($link));
 ?>
 <html lang="hy">
   <head>
@@ -47,9 +46,10 @@
       <p class="Text"><i>&nbsp;&nbsp;Այստեղ դուք կարող եք ծանոթանալ առաջիկայում սպասվող կամ արդեն ավելացված հավելումներին։</i></p><hr>
 
       <?
-        mysqli_close($link);
-        if(mysqli_num_rows($result)){
-          while ($row = getrow())
+        $result = mysqli_query($link, "SELECT * FROM `News` ORDER BY id DESC") or die(mysqli_error($link)); // Query rquest
+        mysqli_close($link); // Close connection
+        if(mysqli_num_rows($result)){ // !empty table checker
+          while ($row = getrow($result))
           {
             echo '<div style="padding-left: 20px"> <a class="spoiler_links">'.$row['title'].'</a>';
             echo  '<div class="spoiler_body">'.$row['description'].'</div></div>';

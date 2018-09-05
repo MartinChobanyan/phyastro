@@ -1,11 +1,12 @@
 <?
   include_once '../scripts/getrow.php';
-  $result=mysqli_query($link, "SELECT * FROM `News`") or die(mysqli_error($link));
 ?>
 <html>
   <head>
     <title>ADMIN PANEL - News Redaction</title>
+
     <? include_once $_SERVER['DOCUMENT_ROOT'].'/blocks/admin_head.html' ?>
+    
     <link href="/css/adm_PostForm.css" rel="stylesheet">
   </head>
   <body>
@@ -27,14 +28,15 @@
             <th>Նորություն(Description)</th>
           </tr>
           <?
+            $result = mysqli_query($link, "SELECT * FROM `News`") or die(mysqli_error($link));
             mysqli_close($link);
-            while ($row = getrow()):
+            while ($row = getrow($result)):
               echo '<tr id='.$row['id'].'>
                 <td>'.$row['id'].'</td>
                 <td>'.$row['title'].'</td>
                 <td style="text-align: justify; white-space: pre-wrap;">'.$row['description'].'</td>
               </tr>';
-              endwhile;
+            endwhile;
           ?>
         </table>
         <br>
@@ -52,7 +54,7 @@
 
         <form method="POST" id="News-del" class="Post-form">
           <span style="color:#FFEAEA">Նորության ID:</span>
-          <input type="text" autocomplete="off" pattern="[0-9]{0,3}" name="id" required placeholder="ID համար[0-3 թվանշան]">
+            <input type="text" autocomplete="off" pattern="[0-9]{0,3}" name="id" required placeholder="ID համար[0-3 թվանշան]">
           <input type="submit" value="հեռացնել">
         </form>
       </center>

@@ -1,12 +1,12 @@
 <?
   include_once '../scripts/getrow.php';
-  $result=mysqli_query($link, "SELECT * FROM `Gradaran` ORDER BY `title`") or die(mysqli_error($link));
 ?>
 <html>
   <head>
     <title>ADMIN PANEL - Bookcase</title>
 
     <? include_once $_SERVER['DOCUMENT_ROOT'].'/blocks/admin_head.html' ?>
+    
     <link href="/css/adm_PostForm.css" rel="stylesheet">
   </head>
 
@@ -34,8 +34,9 @@
             <th>Hidden?</th>
           </tr>
           <?
+            $result = mysqli_query($link, "SELECT * FROM `Gradaran` ORDER BY `title`") or die(mysqli_error($link));
             mysqli_close($link);
-            while ($row=getrow()):
+            while ($row = getrow($result)):
               echo '<tr '; if(!$row['visible']) echo 'class="hidden" '; echo 'id='.$row['id'].'>
                 <td>'.$row['id'].'</td>
                 <td>'.$row['title'].'</td>
@@ -73,15 +74,14 @@
             <select><br>
           <input type="submit" value="Ավելացնել|Փոփոխել">
         </form>
-      </center>
-      <br>
+        <br>
 
-      <center>
         <form method="POST" id="Girq-del" class="Post-form">
           <span style="color: #FFEAEA">Գրքի ID:</span>
-          <input type="text" autocomplete="off" pattern="[0-9]{0,3}" name="id" required placeholder="ID համար[0-3 թվանշան]">
+            <input type="text" autocomplete="off" pattern="[0-9]{0,3}" name="id" required placeholder="ID համար[0-3 թվանշան]">
           <input type="submit" value="հեռացնել">
-        </form></center>
+        </form>
+      </center>
         <br>
     </div>
     <script>
