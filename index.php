@@ -3,7 +3,7 @@
     include_once 'scripts/logreader.php';
     include_once 'session.php';
     include_once 'scripts/getrow.php';
-    $result=mysqli_query($link, "SELECT * FROM `Gradaran` WHERE `visible`= 1 ORDER BY `title`") or die(mysqli_error($link)); 
+    $result = mysqli_query($link, "SELECT * FROM `Gradaran` WHERE `visible`= 1 ORDER BY `title`") or die(mysqli_error($link)); 
 ?>
 <html lang="hy">
 <head>
@@ -34,8 +34,8 @@
     <!--Content-->
     <header>
       <? 
-          require_once ('blocks/header.php');
-          require_once ('blocks/Top-Nav.php') 
+            require_once ('blocks/header.php');
+            require_once ('blocks/Top-Nav.php'); 
       ?>
     </header>
 
@@ -48,24 +48,24 @@
             <option value="2">Մասնագիտացված</option>
         <select>
     </search>
-        <ul id="G" class="Grqashar">
+
+    <ul id="G" class="Grqashar">
         <!--~~~~~~~~~~~~~Books-GET~~~~~~~~~~~~~~~~-->
         <?
-          mysqli_close($link);
-          $s=''; $full=false;
-          while ($row=getrow()):
-            $full=True;
-            if($s!=mb_substr($row['title'], 0, 1, 'UTF-8') || empty($s))
-            {
-              $s=mb_substr($row['title'], 0, 1, 'UTF-8');
-              echo '<li><a class="header">'.$s.'</a></li>';
-            }
-            echo '<li><a t="'.$row['type'].'" href="http://'.$row['link'].'">'.$row['title'].'</a></li>';
-          endwhile;
-          if(!$full) echo '<p style="text-align: center; font-size: 25px; color: #55C5D9">There are no books in library to show</p>';
+            mysqli_close($link);
+            $s = ''; $full = False;
+            while (($row = getrow()) && $full = True):
+                if($s != mb_substr($row['title'], 0, 1, 'UTF-8') || empty($s))
+                {
+                    $s = mb_substr($row['title'], 0, 1, 'UTF-8');
+                    echo '<li><a class="header">'.$s.'</a></li>';
+                }
+                echo '<li><a t="'.$row['type'].'" href="http://'.$row['link'].'">'.$row['title'].'</a></li>';
+            endwhile;
+            if(!$full) echo '<p style="text-align: center; font-size: 25px; color: #55C5D9">There are no books in library to show</p>';
         ?>
         <!--~~~~~Over~~~~~-->
-        </ul>
+    </ul>
 
     <!--FACEBOOK SHARE-->
     <div class="fb-like" 

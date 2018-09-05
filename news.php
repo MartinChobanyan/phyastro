@@ -1,64 +1,66 @@
 <?
-include_once 'scripts/conf.php';
-include_once 'scripts/logreader.php';
-include_once 'scripts/getrow.php';
-$result=mysqli_query($link, "SELECT * FROM `News` ORDER BY id DESC") or die(mysqli_error($link));
+  include_once 'scripts/conf.php';
+  include_once 'scripts/logreader.php';
+  include_once 'scripts/getrow.php';
+  $result = mysqli_query($link, "SELECT * FROM `News` ORDER BY id DESC") or die(mysqli_error($link));
 ?>
 <html lang="hy">
-<head>
-<!--SPOILER SCRIPT-->
+  <head>
+    <!--SPOILER SCRIPT-->
 
-<script src="js/jquery-1.7.2.min.js" type="text/javascript"></script>
-<script type="text/javascript">
-    $(document).ready(function(){
- $('.spoiler_links').click(function(){
-  if($(this).next('div').is(':hidden')) 
-  {
-    $("div[class^='spoiler_body']").hide('normal');
-  }
-  $(this).parent().children('div.spoiler_body').toggle('normal');
-  return false;
- });
-});
-</script>
-      <title><?=$name?> գրադարան | Նորույթներ</title>
+    <script src="js/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.spoiler_links').click(function(){
+          if($(this).next('div').is(':hidden')) 
+          {
+            $("div[class^='spoiler_body']").hide('normal');
+          }
+          $(this).parent().children('div.spoiler_body').toggle('normal');
+          return false;
+        });
+      });
+    </script>
 
-<? require_once 'blocks/head.html' ?>
+    <title><?=$name?> գրադարան | Նորույթներ</title>
 
-<!-- Additional styles -->
-<link href="css/Spoiler.css" rel="stylesheet">
-<!-- ~~~~~~~~~~~~~~~~~ -->
+    <? require_once 'blocks/head.html' ?>
 
-</head>
-<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<body>
+    <!-- Additional styles -->
+      <link href="css/Spoiler.css" rel="stylesheet">
+    <!-- ~~~~~~~~~~~~~~~~~ -->
 
-<? 
-  require_once ('blocks/header.php');
-  require_once ('blocks/Top-Nav.php') 
-?>
+  </head>
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <body>
 
-<!--СОДЕРЖАНИЕ ~~~~Описание-->
-<div class="Y-Back">
+    <? 
+      require_once ('blocks/header.php');
+      require_once ('blocks/Top-Nav.php') 
+    ?>
 
-<noindex><h1><i class="Y-Glux">Նորույթներ</i></h1></noindex>
-<p class="Text"><i>&nbsp;&nbsp;Այստեղ դուք կարող եք ծանոթանալ առաջիկայում սպասվող կամ արդեն ավելացված հավելումներին։</i></p><hr>
+    <div class="Y-Back">
 
-<!--~~~~~~~СОДЕРДАНИЕ~~~~~~Главная часть-->
+      <noindex>
+        <h1><i class="Y-Glux">Նորույթներ</i></h1>
+      </noindex>
+      <p class="Text"><i>&nbsp;&nbsp;Այստեղ դուք կարող եք ծանոթանալ առաջիկայում սպասվող կամ արդեն ավելացված հավելումներին։</i></p><hr>
 
-<?
-	mysqli_close($link);
-    while ($row=getrow()):
-      $full=True;
-	    echo '<div style="padding-left: 20px"> <a class="spoiler_links">'.$row['title'].'</a>';
-	    echo  '<div class="spoiler_body">'.$row['description'].'</div></div>';
-	  endwhile;
-  if(!$full) echo '<p style="text-align: center; font-size: 20px; color: #44D5EB">There are no news to show</p>';
-?>
+      <?
+        mysqli_close($link);
+        $full = False;
+          while ($row = getrow() && $full = True):
+            echo '<div style="padding-left: 20px"> <a class="spoiler_links">'.$row['title'].'</a>';
+            echo  '<div class="spoiler_body">'.$row['description'].'</div></div>';
+          endwhile;
+        if(!$full) echo '<p style="text-align: center; font-size: 20px; color: #44D5EB">There are no news to show</p>';
+      ?>
 
-<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
-<div><hr> <?require_once ('blocks/footer.php') ?> <!--FOOTER PART-->   </div> </div>
+      <hr> <?require_once ('blocks/footer.php') ?> <!--FOOTER PART-->
 
-</body>
+    </div>
+
+  </body>
 </html>

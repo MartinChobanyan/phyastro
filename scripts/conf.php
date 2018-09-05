@@ -1,3 +1,4 @@
 <?
-$name="E-PhyAstro";
+    $name = "E-PhyAstro";
+    $domain = "";
 ?>
