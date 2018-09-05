@@ -39,7 +39,7 @@
             </center>
             <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
-            <hr> <?require_once ('blocks/footer.php') ?> <!--FOOTER PART-->    
+            <hr> <? require_once ('blocks/footer.php') ?> <!--FOOTER PART-->    
         </div>
 
     </body>

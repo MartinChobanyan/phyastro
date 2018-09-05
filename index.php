@@ -53,8 +53,10 @@
         <!--~~~~~~~~~~~~~Books-GET~~~~~~~~~~~~~~~~-->
         <?
             mysqli_close($link);
-            $s = ''; $full = False;
-            while (($row = getrow()) && $full = True):
+            $s = ''; 
+            $full = False;
+            while ($row = getrow()):
+                $full = True;
                 if($s != mb_substr($row['title'], 0, 1, 'UTF-8') || empty($s))
                 {
                     $s = mb_substr($row['title'], 0, 1, 'UTF-8');

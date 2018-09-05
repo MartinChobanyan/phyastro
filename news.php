@@ -49,7 +49,8 @@
       <?
         mysqli_close($link);
         $full = False;
-          while ($row = getrow() && $full = True):
+          while ($row = getrow()):
+            $full = True;
             echo '<div style="padding-left: 20px"> <a class="spoiler_links">'.$row['title'].'</a>';
             echo  '<div class="spoiler_body">'.$row['description'].'</div></div>';
           endwhile;
@@ -58,7 +59,7 @@
 
       <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
-      <hr> <?require_once ('blocks/footer.php') ?> <!--FOOTER PART-->
+      <hr> <? require_once ('blocks/footer.php') ?> <!--FOOTER PART-->
 
     </div>
 

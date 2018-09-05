@@ -43,7 +43,7 @@
             <input type="submit" value="Ուղարկել">
           </form>
         </center>
-        <hr> <?require_once ('blocks/footer.php') ?> <!--FOOTER PART-->  
+        <hr> <? require_once ('blocks/footer.php') ?> <!--FOOTER PART-->  
       </div>
        
     </div>
