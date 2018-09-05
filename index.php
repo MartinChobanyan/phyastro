@@ -54,17 +54,20 @@
         <?
             mysqli_close($link);
             $s = ''; 
-            $full = False;
-            while ($row = getrow()):
-                $full = True;
-                if($s != mb_substr($row['title'], 0, 1, 'UTF-8') || empty($s))
+            if(mysqli_num_rows($result)){
+                while ($row = getrow())
                 {
-                    $s = mb_substr($row['title'], 0, 1, 'UTF-8');
-                    echo '<li><a class="header">'.$s.'</a></li>';
+                    $full = True;
+                    if($s != mb_substr($row['title'], 0, 1, 'UTF-8') || empty($s))
+                    {
+                        $s = mb_substr($row['title'], 0, 1, 'UTF-8');
+                        echo '<li><a class="header">'.$s.'</a></li>';
+                    }
+                    echo '<li><a t="'.$row['type'].'" href="http://'.$row['link'].'">'.$row['title'].'</a></li>';
                 }
-                echo '<li><a t="'.$row['type'].'" href="http://'.$row['link'].'">'.$row['title'].'</a></li>';
-            endwhile;
-            if(!$full) echo '<p style="text-align: center; font-size: 25px; color: #55C5D9">There are no books in library to show</p>';
+            }
+            else
+                echo '<p style="text-align: center; font-size: 25px; color: #55C5D9">There are no books in library to show</p>';
         ?>
         <!--~~~~~Over~~~~~-->
     </ul>

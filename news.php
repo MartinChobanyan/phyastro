@@ -48,13 +48,13 @@
 
       <?
         mysqli_close($link);
-        $full = False;
-        while ($row = getrow()):
-          $full = True;
-          echo '<div style="padding-left: 20px"> <a class="spoiler_links">'.$row['title'].'</a>';
-          echo  '<div class="spoiler_body">'.$row['description'].'</div></div>';
-        endwhile;
-        if(!$full) echo '<p style="text-align: center; font-size: 20px; color: #44D5EB">There are no news to show</p>';
+        if(mysqli_num_rows($result)){
+          while ($row = getrow())
+          {
+            echo '<div style="padding-left: 20px"> <a class="spoiler_links">'.$row['title'].'</a>';
+            echo  '<div class="spoiler_body">'.$row['description'].'</div></div>';
+          }
+        }else echo '<p style="text-align: center; font-size: 20px; color: #44D5EB">There are no news to show</p>';
       ?>
 
       <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
