@@ -10,10 +10,10 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110177624-1"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","UA-110177624-1");</script>
     <!-- TitleOfPage -->
-    <title><?=$name?> գրադարան</title>
+    <title><?=SITE_NAME?> գրադարան</title>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
-    <? require_once 'blocks/head.html' ?>
+    <? require_once 'blocks/head.php' ?>
 
     <!-- Additional styles -->
         <link href="css/search.css" rel="stylesheet">
@@ -73,7 +73,7 @@
 
     <!--FACEBOOK SHARE-->
     <div class="fb-like" 
-        data-href="http://e-phyastro.xyz/" 
+        data-href="<?=URL?>" 
         data-width="320" 
         data-layout="button_count" 
         data-action="like" 

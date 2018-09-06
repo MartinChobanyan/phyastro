@@ -1,5 +1,5 @@
-ErrorDocument 403 /err403.html
-ErrorDocument 404 /err404.html
+ErrorDocument 403 /err403.php
+ErrorDocument 404 /err404.php
 RewriteEngine On
 
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.(html|php)

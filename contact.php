@@ -4,9 +4,9 @@
 ?>
 <html lang="hy">
   <head>
-    <title><?=$name?> գրադարան | Հետադարձ կապ</title>
+    <title><?=SITE_NAME?> գրադարան | Հետադարձ կապ</title>
 
-    <? require_once 'blocks/head.html' ?>
+    <? require_once 'blocks/head.php' ?>
 
     <!-- Additional styles -->
     <link href="css/Request_Form.css" rel="stylesheet">

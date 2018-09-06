@@ -7,10 +7,10 @@
           <meta name="Author" lang="hy" content="Մարտին Չոբանյան">
           <meta name="copyright" content="E-PhyAstro">
     <!-- FACE/VK/Viber..etc.. site vision logo -->
-          <link rel="image_src" href="http://e-phyastro.xyz/sender_image.png">
+          <link rel="image_src" href="<?=URL?>sender_image.png">
           <meta property="fb:app_id"        content="996135457185915" />
-          <meta property="og:image"         content="http://e-phyastro.xyz/sender_image.png" />
-          <meta property="og:url"           content="http://e-phyastro.xyz/" />
+          <meta property="og:image"         content="<?=URL?>sender_image.png" />
+          <meta property="og:url"           content="<?=URL?>" />
           <meta property="og:type"          content="website" />
           <meta property="og:title"         content="E-PhyAstro library" />
           <meta property="og:description"   content="E-PhyAstro Ֆիզիկայի և Աստղագիտություն WEB-գրադարան" />

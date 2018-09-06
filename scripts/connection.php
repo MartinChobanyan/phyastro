@@ -1,8 +1,4 @@
 <?php
-$Host="localhost";
-$Root="root";
-$Pass="";
-$DB="u557977471_emma";
-global $link;
-$link = mysqli_connect($Host, $Root, $Pass, $DB) or die('Error: #666 MySQL no connection!');
+    include_once "conf.php";
+    $link = mysqli_connect(DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die('Error: #666 MySQL no connection!');
 ?>

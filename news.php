@@ -21,9 +21,9 @@
       });
     </script>
 
-    <title><?=$name?> գրադարան | Նորույթներ</title>
+    <title><?=SITE_NAME?> գրադարան | Նորույթներ</title>
 
-    <? require_once 'blocks/head.html' ?>
+    <? require_once 'blocks/head.php' ?>
 
     <!-- Additional styles -->
       <link href="css/Spoiler.css" rel="stylesheet">

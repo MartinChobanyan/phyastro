@@ -4,9 +4,9 @@
 ?>
 <html lang="hy">
     <head>
-        <title><?=$name?> գրադարան | Մեր մասին</title>
+        <title><?=SITE_NAME?> գրադարան | Մեր մասին</title>
 
-        <? require_once 'blocks/head.html' ?>
+        <? require_once 'blocks/head.php' ?>
 
     </head>
     <!-- ~~~~~~~~~~~~~~~~~~~ -->
