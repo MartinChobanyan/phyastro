@@ -1,4 +1,7 @@
-﻿<html>
+﻿<? 
+    include_once "scripts/conf.php"
+?>
+<html>
 <style>
 .Error {
 	margin: auto;
@@ -10,7 +13,7 @@
 <head>
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <meta http-equiv="Refresh" content="4.5; URL=<?=URL?>">
+     <meta http-equiv="Refresh" content="4.5; <?=URL?>">
      <title>E-PhyAstro գրադարան | Error 404</title>
 </head>
 <body>

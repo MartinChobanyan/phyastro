@@ -1,7 +1,7 @@
 <?php
     // SITE PARAMS
     define("SITE_NAME", "E-PhyAstro");
-    define("URL", "http://e-phyastro.xyz/");
+    define("URL", "http://phyastro.xyz/");
 
     // DB PARAMS
     define("DB_HOSTNAME", "localhost");
