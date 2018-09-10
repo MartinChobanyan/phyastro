@@ -96,7 +96,7 @@
             alert(http.responseText);
             f.id.value=f.link.value=f.title.value='';
             o.value=0;
-            location.reload();
+            location.reload(false);
           }
         }
       }, false);
@@ -109,8 +109,8 @@
         http.onreadystatechange = function() {
           if (http.readyState == 4 && http.status == 200) {
             alert(http.responseText);
-            f.id.value='';
             document.getElementById(f.id.value).style.display = "none";
+            f.id.value='';
           }
         }
       }, false);
@@ -136,7 +136,7 @@
             "id": id,
             "value": vle
           }, function(){
-            location.reload(); // peridical change on this(wait for optimization)
+            location.reload(false); // peridical change on this(wait for optimization)
           });
         });
         jQuery("td select").change(function() {
@@ -146,7 +146,7 @@
             "id": id,
             "type": t
           }, function(){
-            location.reload(); // peridical change on this(wait for optimization)
+            location.reload(false); // peridical change on this(wait for optimization)
           });
         });
         /*=======Функция универсального ajax запроса=======*/
